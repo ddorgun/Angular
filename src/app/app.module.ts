@@ -3,9 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatTable } from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppComponent } from './app.component';
+
+// Feature Modules
+import { PageModule } from './page/page.module';
+
+// Routing Modules
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +20,9 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatTable
+    MatTableModule,
+    AppRoutingModule,
+    PageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
