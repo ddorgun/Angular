@@ -3,26 +3,27 @@ import { NgModule } from '@angular/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatTableModule } from '@angular/material/table';
-
 import { AppComponent } from './app.component';
-
-// Feature Modules
-import { PageModule } from './page/page.module';
 
 // Routing Modules
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
+// Feature Modules
+import { PageModule } from './page/page.module';
+import { LayoutComponent } from './layout/layout.component';
+import { NavModule } from './nav/nav.module';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatTableModule,
     AppRoutingModule,
-    PageModule
+    PageModule,
+    NavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
