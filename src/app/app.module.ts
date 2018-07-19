@@ -13,19 +13,22 @@ import { PageModule } from './page/page.module';
 import { LayoutComponent } from './layout/layout.component';
 import { NavModule } from './nav/nav.module';
 
+import { MatSidenavModule } from '@angular/material';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    LayoutComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    PageModule,
-    NavModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LayoutComponent
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        PageModule,
+        MatSidenavModule,
+        NavModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

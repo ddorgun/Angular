@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-nav',
@@ -12,8 +12,10 @@ export class NavComponent implements OnInit {
     ngOnInit() {
     }
 
+    @Output() menuToggleEvent = new EventEmitter();
+
     menutoggle(): void {
-        alert('togel');
+        this.menuToggleEvent.emit();
     }
     
 }
