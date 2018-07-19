@@ -1,0 +1,23 @@
+.nav-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.nav-icon {
+  padding: 0 14px;
+}
+
+.nav-user {
+    padding: 0 30px;
+    display: table;
+}
+
+.nav-user>span {
+    vertical-align: middle;
+    display: table-cell;
+}
+.nav-toolbar{
+    position: fixed;
+    z-index: 2
+}

@@ -1,11 +1,12 @@
-<p>
-  nav works!
-</p>
-
-<mat-list>
-  <mat-list-item>Item 1</mat-list-item>
-  <mat-divider [inset]="true"></mat-divider>
-  <mat-list-item>Item 2</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item>Item 3</mat-list-item>
-</mat-list>
+<mat-toolbar color="primary" role="heading" class="nav-toolbar">
+  <button mat-icon-button (click)="menutoggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1>My Application</h1>
+  <span class="nav-fill-remaining-space"></span>
+  <div class="nav-user">
+    <mat-icon class="nav-icon">person</mat-icon>
+    <span>User</span>
+  </div>
+  <mat-icon class="nav-icon">help</mat-icon>
+</mat-toolbar>
