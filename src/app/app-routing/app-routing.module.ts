@@ -4,9 +4,11 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule, } from '@angular/router';
 
 import { HomeComponent } from '../page/home/home.component';
+import { DashboardComponent } from '../page/dashboard/dashboard.component';
 
 const routers: Routes = [
-    { path: 'home', component: HomeComponent }
+    { path: '', component: HomeComponent },
+    { path: 'page1', component: DashboardComponent }
 ];
 @NgModule({
   imports: [
