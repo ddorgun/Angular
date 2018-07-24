@@ -1,12 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-nav class="toolbar" (menuToggleEvent)="snav.toggle()"></app-nav>
+<app-nav class="toolbar" (menuToggleEvent)="isExpanded=!isExpanded"></app-nav>
 <mat-sidenav-container class="container" autosize>
-  <mat-sidenav #snav mode="side">
-    <button mat-icon-button>
-      <mat-icon>menu</mat-icon>
+  <mat-sidenav #snav mode="side" opened="true">
+    <button mat-icon-button (click)="go()">
+      <mat-icon>home</mat-icon>
     </button>
-    <h2 *ngIf="isExpanded">Here are some links to help you start: text texttexttexttexttexttexttexttexttexttexttexttexttexttext</h2>
-    <ul>
+    <h2 *ngIf="isExpanded">MENU</h2>
+    <button mat-icon-button (click)="go2()">
+    <mat-icon>home</mat-icon>
+    </button>
+    <!-- <ul>
       <li>
         <h2>
           <a mat-button role="button" (click)="isExpanded=!isExpanded">isExpanded Controller</a>
@@ -29,7 +32,7 @@
       </li>
 
 
-    </ul>
+    </ul> -->
   </mat-sidenav>
   <mat-sidenav-content>
     <app-layout></app-layout>

@@ -8,14 +8,15 @@ import { DashboardComponent } from '../page/dashboard/dashboard.component';
 
 const routers: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'page1', component: DashboardComponent }
+    { path: 'page1', component: DashboardComponent },
+    { path: 'page2', loadChildren: '../page/test/content/content.module#ContentModule' }
 ];
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(routers)
-  ],
-  declarations: [],
-  exports: [RouterModule]
+    imports: [
+        CommonModule,
+        RouterModule.forRoot(routers)
+    ],
+    declarations: [],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }
