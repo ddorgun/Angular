@@ -8,16 +8,16 @@ import { BaseCComponent } from './base-c/base-c.component'
 
 const routers: Routes = [
     { path: '', component: MainComponent },
-    { path: 'page2', component: BaseCComponent }
+    { path: 'pageC', component: BaseCComponent }
 ];
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule.forChild(routers)
     ],
     declarations: [
         MainComponent,
-        BaseCComponent
+        BaseCComponent,
     ]
 })
 export class ContentModule { }
