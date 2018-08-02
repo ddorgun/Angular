@@ -14,3 +14,11 @@
     left: 0;
     right: 0;
 }
+
+.side-menu {
+    overflow: hidden;
+}
+
+.menu-close {
+    visibility: visible;
+}

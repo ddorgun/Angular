@@ -1,14 +1,25 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-nav class="toolbar" (menuToggleEvent)="isExpanded=!isExpanded"></app-nav>
 <mat-sidenav-container class="container" autosize>
-  <mat-sidenav #snav mode="side" opened="true">
-    <button mat-icon-button (click)="go()">
+  <mat-sidenav #snav mode="side" opened="true" class="side-menu">
+    <button mat-icon-button (click)="go2()">
       <mat-icon>home</mat-icon>
     </button>
-    <h2 *ngIf="isExpanded">MENU</h2>
-    <button mat-icon-button (click)="go2()">
-    <mat-icon>home</mat-icon>
+    <button mat-icon-button (click)="go()" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()" [@menuMouseOver]="isMenuMouserOver"
+      (@menuMouseOver.done)="animationDone($event)">
+      <mat-icon>home</mat-icon>
     </button>
+    <mat-list [hidden]="!isExpanded && !isShowing" class="menu" [@menuExpendMouseOver]="expend && !isExpanded" (@menuExpendMouseOver.done)="animationDone1($event)">
+      <mat-list-item> Pepper </mat-list-item>
+      <mat-list-item> Salt </mat-list-item>
+      <mat-list-item> Paprika </mat-list-item>
+      <mat-list-item>
+        <button mat-icon-button (click)="go2()">
+          <mat-icon>home</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+
     <!-- <ul>
       <li>
         <h2>
@@ -30,8 +41,6 @@
           <a routerLink="/home">home</a>
         </h2>
       </li>
-
-
     </ul> -->
   </mat-sidenav>
   <mat-sidenav-content>

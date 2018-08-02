@@ -13,7 +13,7 @@ import { PageModule } from './page/page.module';
 import { LayoutComponent } from './layout/layout.component';
 import { NavModule } from './nav/nav.module';
 
-import { MatSidenavModule, MatIconModule, MatButtonModule } from '@angular/material';
+import { MatSidenavModule, MatIconModule, MatButtonModule, MatListModule } from '@angular/material';
 
 @NgModule({
     declarations: [
@@ -28,6 +28,7 @@ import { MatSidenavModule, MatIconModule, MatButtonModule } from '@angular/mater
         MatSidenavModule,
         MatIconModule,
         MatButtonModule,
+        MatListModule,
         NavModule
     ],
     providers: [],
