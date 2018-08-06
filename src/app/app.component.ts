@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import {
+    Router,
+    Event,
+    NavigationStart,
+    NavigationCancel,
+    NavigationEnd,
+    NavigationError
+} from '@angular/router';
 import {
     trigger,
     state,
@@ -45,7 +52,7 @@ import {
             // ])
         ]),
         trigger('menuExpendMouseOver', [
-            state('view', style({width: 120, opacity: 1})),
+            state('view', style({ width: 120, opacity: 1 })),
             transition('* => start', [
                 group([
                     animate('0.3s 0.1s ease', style({
@@ -54,7 +61,7 @@ import {
                     })),
                     animate('0.3s ease', style({
                         opacity: 1
-                        
+
                     }))
                 ])
             ]),
@@ -66,7 +73,7 @@ import {
                     })),
                     animate('0.3s 0.2s ease', style({
                         opacity: 0
-                        
+
                     }))
                 ])
             ])
@@ -79,8 +86,14 @@ export class AppComponent {
     isShowing = false;
     isMenuMouserOver = 'inactive'
     expend = 'hidden';
+    isLodingBar = false;
 
-    constructor(private route: Router) { }
+    constructor(private route: Router) {
+        this.route.events.subscribe((event: Event) => {
+            this.navigationInterceptor(event);
+        });
+    }
+
 
     mouserover(): void {
         console.log('over');
@@ -88,7 +101,7 @@ export class AppComponent {
     }
 
     mouseenter(): void {
-         this.isMenuMouserOver = 'active';
+        this.isMenuMouserOver = 'active';
         if (!this.isExpanded) {
             this.isShowing = true;
         }
@@ -108,16 +121,35 @@ export class AppComponent {
         this.route.navigate(['page2']);
     }
 
-    animationDone($event) :void {
+    animationDone($event): void {
 
         console.log($event);
-        if($event.fromState !== 'void' && this.isShowing){
+        if ($event.fromState !== 'void' && this.isShowing) {
             ($event.toState === 'active') ? this.expend = 'start' : this.expend = 'hidden';
         }
     }
 
-    animationDone1($event) :void {
+    animationDone1($event): void {
 
         console.log('animationDone1', $event);
+    }
+
+    private navigationInterceptor(event: Event): void {
+        if (event instanceof NavigationStart) {
+            console.log('NavigationStart');
+            this.isLodingBar = true;
+        }
+        if (event instanceof NavigationEnd) {
+            console.log('NavigationEnd');
+            this.isLodingBar = false;
+        }
+        if (event instanceof NavigationCancel) {
+            console.log('NavigationCancel');
+            this.isLodingBar = false;
+        }
+        if (event instanceof NavigationError) {
+            console.log('NavigationError');
+            this.isLodingBar = false;
+        }
     }
 }

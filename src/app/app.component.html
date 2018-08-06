@@ -1,4 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<mat-progress-bar mode="indeterminate" *ngIf="isLodingBar" class="page-loading-bar"></mat-progress-bar>
 <app-nav class="toolbar" (menuToggleEvent)="isExpanded=!isExpanded"></app-nav>
 <mat-sidenav-container class="container" autosize>
   <mat-sidenav #snav mode="side" opened="true" class="side-menu">
