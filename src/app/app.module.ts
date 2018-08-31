@@ -14,11 +14,13 @@ import { LayoutComponent } from './layout/layout.component';
 import { NavModule } from './nav/nav.module';
 
 import { MatSidenavModule, MatIconModule, MatButtonModule, MatListModule, MatProgressBarModule } from '@angular/material';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        LayoutComponent
+        LayoutComponent,
+        BreadcrumbComponent
     ],
     imports: [
         BrowserModule,

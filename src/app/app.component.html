@@ -6,11 +6,10 @@
     <button mat-icon-button (click)="go2()">
       <mat-icon>home</mat-icon>
     </button>
-    <button mat-icon-button (click)="go()" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()" [@menuMouseOver]="isMenuMouserOver"
-      (@menuMouseOver.done)="animationDone($event)">
+    <button mat-icon-button (click)="go()" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()" [@menuMouseOver]="isMenuMouserOver">
       <mat-icon>home</mat-icon>
     </button>
-    <mat-list [hidden]="!isExpanded && !isShowing" class="menu" [@menuExpendMouseOver]="expend && !isExpanded" (@menuExpendMouseOver.done)="animationDone1($event)">
+    <mat-list [hidden]="!isExpanded && !isShowing" class="menu" [@menuExpendMouseOver]="isMenuMouserOver">
       <mat-list-item> Pepper </mat-list-item>
       <mat-list-item> Salt </mat-list-item>
       <mat-list-item> Paprika </mat-list-item>

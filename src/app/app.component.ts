@@ -25,11 +25,11 @@ import {
         trigger('menuMouseOver', [
             state('active', style({
                 backgroundColor: '#cfd8dc',
-                transform: 'scale(1)'
+                transform: 'scale(1.1)'
             })),
             state('inactive', style({
                 backgroundColor: '#eee',
-                transform: 'scale(1.1)'
+                transform: 'scale(1)'
             })),
             transition('inactive <=> active', animate('100ms ease-out'))
             // transition('inactive => active', [
@@ -52,31 +52,33 @@ import {
             // ])
         ]),
         trigger('menuExpendMouseOver', [
-            state('view', style({ width: 120, opacity: 1 })),
-            transition('* => start', [
-                group([
-                    animate('0.3s 0.1s ease', style({
-                        width: 120,
-                        visibility: 'hidden'
-                    })),
-                    animate('0.3s ease', style({
-                        opacity: 1
+            state('active', style({ width: '240px'})),
+            state('inactive', style({ width: '40px'})),
+            transition('inactive <=> active', animate('200ms ease-out'))
+            // transition('* => start', [
+            //     group([
+            //         animate('0.3s 0.1s ease', style({
+            //             width: 120,
+            //             visibility: 'hidden'
+            //         })),
+            //         animate('0.3s ease', style({
+            //             opacity: 1
 
-                    }))
-                ])
-            ]),
-            transition('start => *', [
-                group([
-                    animate('0.3s ease', style({
-                        // width: 40
-                        visibility: 'visible'
-                    })),
-                    animate('0.3s 0.2s ease', style({
-                        opacity: 0
+            //         }))
+            //     ])
+            // ]),
+            // transition('start => *', [
+            //     group([
+            //         animate('0.3s ease', style({
+            //             // width: 40
+            //             visibility: 'visible'
+            //         })),
+            //         animate('0.3s 0.2s ease', style({
+            //             opacity: 0
 
-                    }))
-                ])
-            ])
+            //         }))
+            //     ])
+            // ])
         ])
     ]
 })
@@ -89,9 +91,10 @@ export class AppComponent {
     isLodingBar = false;
 
     constructor(private route: Router) {
-        this.route.events.subscribe((event: Event) => {
-            this.navigationInterceptor(event);
-        });
+        this.route.events.subscribe(
+            event => this.navigationInterceptor(event),
+            error => console.error(error),
+            () => console.log('Complete'));
     }
 
 
@@ -121,34 +124,17 @@ export class AppComponent {
         this.route.navigate(['page2']);
     }
 
-    animationDone($event): void {
-
-        console.log($event);
-        if ($event.fromState !== 'void' && this.isShowing) {
-            ($event.toState === 'active') ? this.expend = 'start' : this.expend = 'hidden';
-        }
-    }
-
-    animationDone1($event): void {
-
-        console.log('animationDone1', $event);
-    }
-
     private navigationInterceptor(event: Event): void {
         if (event instanceof NavigationStart) {
-            console.log('NavigationStart');
             this.isLodingBar = true;
         }
         if (event instanceof NavigationEnd) {
-            console.log('NavigationEnd');
             this.isLodingBar = false;
         }
         if (event instanceof NavigationCancel) {
-            console.log('NavigationCancel');
             this.isLodingBar = false;
         }
         if (event instanceof NavigationError) {
-            console.log('NavigationError');
             this.isLodingBar = false;
         }
     }
