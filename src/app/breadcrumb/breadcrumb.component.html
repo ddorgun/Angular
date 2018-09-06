@@ -1,3 +1,14 @@
-<p>
-  breadcrumb works!
-</p>
+<ol class="breadcrumb">
+  <li><a routerLink="/">
+      <i class="material-icons md-24">home</i>
+    </a></li>
+  <li *ngFor="let breadcrumb of breadcrumbs$ | async as breadcrumbs; let i = index" class="breadcrumb-item">
+    <i class="material-icons md-24">keyboard_arrow_right</i>
+    <a *ngIf="i !== breadcrumbs.length - 1; else currentLabel" [routerLink]="[breadcrumb.url]">
+      {{ breadcrumb.label }}
+    </a>
+    <ng-template #currentLabel>
+      <span>{{ breadcrumb.label }}</span>
+    </ng-template>
+  </li>
+</ol>

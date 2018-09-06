@@ -1,0 +1,21 @@
+ol {
+  margin-top: 0;
+  padding: 10px 10px 10px 40px;
+  list-style-type: none;
+  display: flex;
+  background-color: darkgray;
+}
+
+li {
+  display: inline-block;
+  line-height: "24px";
+}
+li a, span, i{
+  text-align: center;
+  vertical-align: middle;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
