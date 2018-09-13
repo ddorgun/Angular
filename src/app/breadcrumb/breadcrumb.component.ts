@@ -46,4 +46,3 @@ export class BreadcrumbComponent implements OnInit {
   }
 
 }
-
