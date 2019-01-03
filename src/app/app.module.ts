@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -15,26 +15,30 @@ import { NavModule } from './nav/nav.module';
 
 import { MatSidenavModule, MatIconModule, MatButtonModule, MatListModule, MatProgressBarModule } from '@angular/material';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { UserServicePipe } from './user/user-service.pipe';
+import { userServiceProvider } from './user/user.service.provider';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        LayoutComponent,
-        BreadcrumbComponent
-    ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        PageModule,
-        MatSidenavModule,
-        MatIconModule,
-        MatButtonModule,
-        MatListModule,
-        MatProgressBarModule,
-        NavModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    LayoutComponent,
+    BreadcrumbComponent,
+    UserServicePipe
+  ],
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    PageModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatButtonModule,
+    MatListModule,
+    MatProgressBarModule,
+    NavModule
+  ],
+  providers: [userServiceProvider],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

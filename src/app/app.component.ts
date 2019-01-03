@@ -16,6 +16,7 @@ import {
   query,
   group
 } from '@angular/animations';
+import { UserService } from './user/user.service';
 
 @Component({
   selector: 'app-root',
@@ -90,11 +91,12 @@ export class AppComponent {
   expend = 'hidden';
   isLodingBar = false;
 
-  constructor(private route: Router) {
+  constructor(private route: Router, private userService: UserService) {
     this.route.events.subscribe(
       event => this.navigationInterceptor(event),
       error => console.error(error),
       () => console.log('Complete'));
+      console.log('AppComponent');
   }
 
 
