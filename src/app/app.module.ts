@@ -15,15 +15,13 @@ import { NavModule } from './nav/nav.module';
 
 import { MatSidenavModule, MatIconModule, MatButtonModule, MatListModule, MatProgressBarModule } from '@angular/material';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-import { UserServicePipe } from './user/user-service.pipe';
 import { userServiceProvider } from './user/user.service.provider';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
-    BreadcrumbComponent,
-    UserServicePipe
+    BreadcrumbComponent
   ],
   imports: [
     HttpClientModule,

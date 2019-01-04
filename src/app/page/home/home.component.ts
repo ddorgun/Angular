@@ -12,9 +12,8 @@ export class HomeComponent implements OnInit {
   user: UserDetail = {id: null, name: null};
   constructor(private userService: UserService) {
     console.log('HomeComponent constructor');
-    this.userService.getUser().subscribe(data => {
-      this.user = data;
-    });
+    this.user = this.userService.getData();
+    console.log();
    }
 
   ngOnInit() {

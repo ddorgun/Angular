@@ -12,7 +12,7 @@ export class NavComponent implements OnInit {
   userInfo: UserDetail = {id: "", name: ""};
 
     constructor(user: UserService) {
-      user.getUser().subscribe(data => this.userInfo = data);
+      this.userInfo = user.getData();
     }
 
     ngOnInit() {
